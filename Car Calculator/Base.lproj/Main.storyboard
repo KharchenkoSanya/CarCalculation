@@ -193,14 +193,39 @@
                                                     <constraint firstAttribute="height" constant="420" id="qdr-lH-V27"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="09L-Zh-14e">
+                                                <rect key="frame" x="0.0" y="495" width="358" height="60"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ish-8x-HY5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="60"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-6e-WRr">
+                                                        <rect key="frame" x="187" y="0.0" width="171" height="60"/>
+                                                        <color key="backgroundColor" red="0.9658074200265222" green="0.96841138601303101" blue="0.670276779821811" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Clear"/>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="VLE-Un-Iqu"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="AQY-th-DZQ" firstAttribute="leading" secondItem="4Cn-FA-YLb" secondAttribute="leading" id="8dK-M5-o06"/>
                                             <constraint firstItem="AQY-th-DZQ" firstAttribute="top" secondItem="Hq2-3F-dm1" secondAttribute="bottom" constant="20" id="Mcr-g6-cne"/>
+                                            <constraint firstAttribute="trailing" secondItem="09L-Zh-14e" secondAttribute="trailing" id="ReB-ul-pLQ"/>
                                             <constraint firstAttribute="trailing" secondItem="AQY-th-DZQ" secondAttribute="trailing" id="YbH-1s-z1a"/>
                                             <constraint firstItem="Hq2-3F-dm1" firstAttribute="leading" secondItem="4Cn-FA-YLb" secondAttribute="leading" id="Yzf-RL-Tb5"/>
                                             <constraint firstItem="Hq2-3F-dm1" firstAttribute="top" secondItem="4Cn-FA-YLb" secondAttribute="top" id="g6E-HN-Gjx"/>
                                             <constraint firstAttribute="trailing" secondItem="Hq2-3F-dm1" secondAttribute="trailing" id="kJV-kt-7FV"/>
+                                            <constraint firstItem="09L-Zh-14e" firstAttribute="leading" secondItem="4Cn-FA-YLb" secondAttribute="leading" id="qcZ-Xc-FWI"/>
+                                            <constraint firstItem="09L-Zh-14e" firstAttribute="top" secondItem="AQY-th-DZQ" secondAttribute="bottom" constant="24" id="rA5-p2-XJi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -225,12 +250,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.461538461538453" y="-79.620853080568722"/>
+            <point key="canvasLocation" x="178" y="-119"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
