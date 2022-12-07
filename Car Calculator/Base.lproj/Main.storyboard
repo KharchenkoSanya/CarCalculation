@@ -202,6 +202,9 @@
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
+                                                        <connections>
+                                                            <action selector="calculateDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5UU-9P-ffC"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-6e-WRr">
                                                         <rect key="frame" x="187" y="0.0" width="171" height="60"/>
@@ -209,6 +212,9 @@
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Clear"/>
+                                                        <connections>
+                                                            <action selector="clearDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eBr-kx-SdT"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -247,10 +253,20 @@
                             <constraint firstItem="1Ur-Yh-ucz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XXa-yd-sIg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brandTextField" destination="LyI-3h-QY9" id="jib-v6-7OH"/>
+                        <outlet property="calculateButton" destination="Ish-8x-HY5" id="YGL-R0-cpj"/>
+                        <outlet property="carTypeSegmentControl" destination="Hq2-3F-dm1" id="tRx-Us-eLD"/>
+                        <outlet property="fuelTextField" destination="WNv-pw-UCh" id="XCb-tx-2id"/>
+                        <outlet property="modelTypeTextField" destination="Ym8-TT-719" id="PBR-JF-ewD"/>
+                        <outlet property="priceTextField" destination="EfP-Xq-Ss3" id="0u1-qi-2mE"/>
+                        <outlet property="productionYearTextField" destination="tWE-0t-VYj" id="0Mw-gJ-fTA"/>
+                        <outlet property="typeTextField" destination="ifK-wj-Q9v" id="Nzd-F1-jxe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="-119"/>
+            <point key="canvasLocation" x="208" y="-138"/>
         </scene>
     </scenes>
     <resources>
