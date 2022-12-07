@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var carTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var brandTextField: UITextField!
@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     let titleType = ["Sedan", "Coupe", "Station wagon", "Minivan"]
     let titleBrand = ["Audi", "BMW", "Mazda", "Mercedes-Benz", "Volkswagen"]
     let titleModelType = ["SyperCar"]
-    let titleProductionYear = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
+    let titleProductionYear = ["2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"]
     let titleFuel = ["Petrol", "Diesel", "Gas", "Electro",]
     
     override func viewDidLoad() {
@@ -45,9 +45,9 @@ class HomeViewController: UIViewController {
         carTypeSegmentControl.insertSegment(withTitle: "USA", at: 1, animated: false)
         carTypeSegmentControl.selectedSegmentIndex = 0
     }
-        func configyreTextField() {
-            priceTextField.delegate = self
-            priceTextField.keyboardType = .numberPad
+    func configyreTextField() {
+        priceTextField.delegate = self
+        priceTextField.keyboardType = .numberPad
         
     }
     func configureDrumTextField() {
@@ -58,10 +58,23 @@ class HomeViewController: UIViewController {
         modelTypeTextField.inputView = pickerView
         productionYearTextField.inputView = pickerView
         fuelTextField.inputView = pickerView
-        selectTitleBy(row: 0)
+        selectTitleByTypeTextField(row: 0)
     }
-    func selectTitleBy(row: Int) {
+    
+    func selectTitleByTypeTextField(row: Int) {
         typeTextField.text = titleType[row]
+    }
+    func selectTitleByBrandTextField(row: Int) {
+        brandTextField.text = titleType[row]
+    }
+    func selectTitleByModelTypeTextField(row: Int) {
+        modelTypeTextField.text = titleType[row]
+    }
+    func selectTitleByProductionYearTextField(row: Int) {
+        productionYearTextField.text = titleType[row]
+    }
+    func selectTitleByFuelTextField(row: Int) {
+        fuelTextField.text = titleType[row]
     }
 }
 
@@ -80,43 +93,46 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == typeTextField {
-            typeTextField.self = titleType
-            titleType.count
+            return titleType.count
         } else if pickerView == brandTextField {
-            //logic for brandTextField
-            titleBrand.count
+            return titleBrand.count
         } else if pickerView == modelTypeTextField {
-            //logic for modelTypeTextField
-            titleModelType.count
+            return titleModelType.count
         } else if pickerView == productionYearTextField {
-            //logic for productionYearTextField
-            titleProductionYear.count
+            return titleProductionYear.count
         } else if pickerView == fuelTextField {
-            //logic for fuelTextField
-            titleFuel.count
+            return titleFuel.count
         }
+        return 0
     }
+    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == typeTextField {
-            pickerView.self = 
-            titleType.[row].title
+            return titleType[row]
         } else if pickerView == brandTextField {
-            pickerView.self =
-            titleBrand.[row].title
+            return titleBrand[row]
         } else if pickerView == modelTypeTextField {
-            //logic for modelTypeTextField
-            titleModelType.[row].title
+            return titleModelType[row]
         } else if pickerView == productionYearTextField {
-            //logic for productionYearTextField
-            titleProductionYear.[row].title
+            return titleProductionYear[row]
         } else if pickerView == fuelTextField {
-            //logic for fuelTextField
-            titleFuel.[row].title
+            return titleFuel[row]
+        }
+        return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectTitleBy(row: row)
+        if pickerView == typeTextField {
+            return selectTitleByTypeTextField(row: row)
+        } else if pickerView == brandTextField {
+            return selectTitleByBrandTextField(row: row)
+        } else if pickerView == modelTypeTextField {
+            return selectTitleByModelTypeTextField(row: row)
+        } else if pickerView == productionYearTextField {
+            return selectTitleByProductionYearTextField(row: row)
+        } else if pickerView == fuelTextField {
+            return selectTitleByFuelTextField(row: row)
+        }
     }
-    
 }
