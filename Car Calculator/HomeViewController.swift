@@ -125,13 +125,13 @@ class HomeViewController: UIViewController {
         switch selectedUkrainOrUSA {
         case 0:
             let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + typeValue + brandValue + productionYearValue + fuelValue
-            showAlertWith(result)
+            showAlertWith(title: String(result))
             
         case 1:
             let result = 1.2 * type + 1.2 * brand + 1.2 * productionYear + 1.2 * fuel + 1.2 * price + typeValue + brandValue + productionYearValue + fuelValue
-            showAlertWith(result)
+            showAlertWith(title: String(result))
             
-        default: break
+        default: ()
         }
     }
     
