@@ -39,8 +39,18 @@ class HomeViewController: UIViewController {
         configureDrumTextField()
         priceTextField.becomeFirstResponder()
         resetResulLable()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
+    }
+   @objc func dismissKeyBoard() {
+        view.endEditing(true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     @IBAction func calculateDidTap(_ sender: Any) {
         let type = Int(typeTextField.text ?? "") ?? 0
@@ -83,7 +93,7 @@ class HomeViewController: UIViewController {
         }
         
         let productionYearIndex = pickerViewProductionYear.selectedRow(inComponent: 0)
-        let productionYearForResult = titleProductionYear[brandIndex]
+        let productionYearForResult = titleProductionYear[productionYearIndex]
         var productionYearValue = 0
         switch productionYearForResult {
         case "2015":
@@ -116,28 +126,30 @@ class HomeViewController: UIViewController {
         case "Gas":
             fuelValue = 300
         case "Electro":
-            fuelValue = 80
+            fuelValue = 1000
         default: break
         }
         
         let selectedUkrainOrUSA = carTypeSegmentControl.selectedSegmentIndex
-        var result = ""
         switch selectedUkrainOrUSA {
         case 0:
-            let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + typeValue + brandValue + productionYearValue + fuelValue
+            let sumOfValues = typeValue + brandValue + productionYearValue + fuelValue
+            let result = type + brand + modelType + productionYear + fuel + price + sumOfValues
             showAlertWith(title: String(result))
             
         case 1:
-            let result = 1.2 * type + 1.2 * brand + 1.2 * productionYear + 1.2 * fuel + 1.2 * price + typeValue + brandValue + productionYearValue + fuelValue
-            showAlertWith(title: String(result))
+            let sumOfValues = typeValue + brandValue + productionYearValue + fuelValue
+            let result = 1.2 * Double(type) + 1.2 * Double(brand) + 1.2 * Double(modelType) + 1.2 * Double(productionYear) + 1.2 * Double(fuel) + 1.2 * Double(price) + Double(sumOfValues)
+            showAlertWith(title: String(Int(result)))
             
         default: ()
         }
-    }
+}
     
     func showAlertWith(title: String) {
         let alert = UIAlertController(title: "You result", message: title, preferredStyle: .alert)
         alert.addAction(.init(title: "Ok", style: .cancel))
+        self.present(alert, animated: true)
     }
     
     @IBAction func UkrainAndUSADidChange(_ sender: UISegmentedControl) {
