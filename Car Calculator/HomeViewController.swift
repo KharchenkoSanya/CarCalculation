@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
         let typeIndex = pickerViewType.selectedRow(inComponent: 0)
         let typeForResult = titleType[typeIndex]
         let typeValue = typeForResult.title
-      
+        
         
         let brandIndex = pickerViewBrand.selectedRow(inComponent: 0)
         let brandForResult = titleBrand[brandIndex]
@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
         let modelTypeIndex = pickerViewModelType.selectedRow(inComponent: 0)
         let modelTypeForResult = titleModelType[modelTypeIndex]
         let modelTypeValue = modelTypeForResult.title
-      
+        
         let productionYearIndex = pickerViewProductionYear.selectedRow(inComponent: 0)
         let productionYearForResult = titleProductionYear[productionYearIndex]
         let productionYearValue = productionYearForResult.title
@@ -81,23 +81,22 @@ class HomeViewController: UIViewController {
         let fuelIndex = pickerViewType.selectedRow(inComponent: 0)
         let fuelForResult = titleFuel[fuelIndex]
         let fuelValue = fuelForResult.title
-       
-       
-        let selectedUkrainOrUSA = carTypeSegmentControl.selectedSegmentIndex
-              switch selectedUkrainOrUSA {
-              case 0:
-                  let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
-                  let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + sumOfValues
-                  showAlertWith(title: String(result))
-                  
-              case 1:
-                  let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
-                  let result = 1.2 * Double(type) + 1.2 * Double(brand) + 1.2 * Double(productionYear) + 1.2 * Double(fuel) + 1.2 * Double(price) + Double(sumOfValues)
-                  showAlertWith(title: String(Int(result)))
-                  
-              default: ()
-              }
-}
+        
+        
+        guard let selectedUkrainOrUSA = CountryCar(rawValue: carTypeSegmentControl.selectedSegmentIndex) else { return }
+        
+        switch selectedUkrainOrUSA {
+        case .ukrain:
+            let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
+            let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + sumOfValues
+            showAlertWith(title: String(result))
+            
+        case .usa:
+            let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
+            let result = 1.2 * Double(type) + 1.2 * Double(brand) + 1.2 * Double(productionYear) + 1.2 * Double(fuel) + 1.2 * Double(price) + Double(sumOfValues)
+            showAlertWith(title: String(Int(result)))
+        }
+    }
     
     func showAlertWith(title: String) {
         let alert = UIAlertController(title: "You result", message: title, preferredStyle: .alert)
@@ -138,8 +137,8 @@ class HomeViewController: UIViewController {
     
     func configureCarTypeSegmentControl() {
         carTypeSegmentControl.removeAllSegments()
-        carTypeSegmentControl.insertSegment(withTitle: "Ukrain", at: 0, animated: false)
-        carTypeSegmentControl.insertSegment(withTitle: "USA", at: 1, animated: false)
+        carTypeSegmentControl.insertSegment(withTitle: CountryCar.ukrain.title, at: 0, animated: false)
+        carTypeSegmentControl.insertSegment(withTitle: CountryCar.usa.title, at: 1, animated: false)
         carTypeSegmentControl.selectedSegmentIndex = 0
     }
     func configyreTextField() {
