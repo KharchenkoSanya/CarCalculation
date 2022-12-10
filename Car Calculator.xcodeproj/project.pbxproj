@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332F5742294382120026D5AE /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F5741294382120026D5AE /* Element.swift */; };
 		33C4068B293F5C840056FA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068A293F5C840056FA78 /* AppDelegate.swift */; };
 		33C4068D293F5C840056FA78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068C293F5C840056FA78 /* SceneDelegate.swift */; };
 		33C4068F293F5C840056FA78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068E293F5C840056FA78 /* HomeViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		332F5741294382120026D5AE /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		33C40687293F5C840056FA78 /* Car Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C4068A293F5C840056FA78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C4068C293F5C840056FA78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				33C4068A293F5C840056FA78 /* AppDelegate.swift */,
 				33C4068C293F5C840056FA78 /* SceneDelegate.swift */,
 				33C4068E293F5C840056FA78 /* HomeViewController.swift */,
+				332F5741294382120026D5AE /* Element.swift */,
 				33C40690293F5C840056FA78 /* Main.storyboard */,
 				33C40693293F5C850056FA78 /* Assets.xcassets */,
 				33C40695293F5C850056FA78 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				33C4068F293F5C840056FA78 /* HomeViewController.swift in Sources */,
 				33C4068B293F5C840056FA78 /* AppDelegate.swift in Sources */,
+				332F5742294382120026D5AE /* Element.swift in Sources */,
 				33C4068D293F5C840056FA78 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,11 +25,11 @@ class HomeViewController: UIViewController {
     let pickerViewProductionYear = UIPickerView()
     let pickerViewFuel = UIPickerView()
     
-    let titleType = ["Sedan", "Coupe", "Station wagon", "Minivan"]
-    let titleBrand = ["Audi", "BMW", "Mazda", "Mercedes-Benz", "Volkswagen"]
-    let titleModelType = ["SyperCar"]
-    let titleProductionYear = ["2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"]
-    let titleFuel = ["Petrol", "Diesel", "Gas", "Electro",]
+    let titleType = TypeElement.allCases
+    let titleBrand = BrandElement.allCases
+    let titleModelType = ModelTypeElement.allCases
+    let titleProductionYear = ProductionYearElement.allCases
+    let titleFuel = FuelElement.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         configureDrumTextField()
         priceTextField.becomeFirstResponder()
         resetResulLable()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
 
         view.addGestureRecognizer(tap)
     }
@@ -62,88 +62,41 @@ class HomeViewController: UIViewController {
         
         let typeIndex = pickerViewType.selectedRow(inComponent: 0)
         let typeForResult = titleType[typeIndex]
-        var typeValue = 0
-        switch typeForResult {
-        case "Sedan":
-            typeValue = 50
-        case "Coupe":
-            typeValue = 200
-        case "Station wagon":
-            typeValue = 300
-        case "Minivan":
-            typeValue = 80
-        default: break
-        }
+        let typeValue = typeForResult.title
+      
         
         let brandIndex = pickerViewBrand.selectedRow(inComponent: 0)
         let brandForResult = titleBrand[brandIndex]
-        var brandValue = 0
-        switch brandForResult {
-        case "Audi":
-            brandValue = 1000
-        case "BMW":
-            brandValue = 1100
-        case "Mazda":
-            brandValue = 400
-        case "Mercedes-Benz":
-            brandValue = 800
-        case "Volkswagen":
-            brandValue = 500
-        default: break
-        }
+        let brandValue = brandForResult.title
         
+        let modelTypeIndex = pickerViewModelType.selectedRow(inComponent: 0)
+        let modelTypeForResult = titleModelType[modelTypeIndex]
+        let modelTypeValue = modelTypeForResult.title
+      
         let productionYearIndex = pickerViewProductionYear.selectedRow(inComponent: 0)
         let productionYearForResult = titleProductionYear[productionYearIndex]
-        var productionYearValue = 0
-        switch productionYearForResult {
-        case "2015":
-            productionYearValue = 500
-        case "2016":
-            productionYearValue = 1000
-        case "2017":
-            productionYearValue = 1500
-        case "2018":
-            productionYearValue = 2000
-        case "2019":
-            productionYearValue = 3000
-        case "2020":
-            productionYearValue = 4000
-        case "2021":
-            productionYearValue = 5000
-        case "2022":
-            productionYearValue = 8000
-        default: break
-        }
+        let productionYearValue = productionYearForResult.title
+        
         
         let fuelIndex = pickerViewType.selectedRow(inComponent: 0)
         let fuelForResult = titleFuel[fuelIndex]
-        var fuelValue = 0
-        switch fuelForResult {
-        case "Petrol":
-            fuelValue = 50
-        case "Diesel":
-            fuelValue = 200
-        case "Gas":
-            fuelValue = 300
-        case "Electro":
-            fuelValue = 1000
-        default: break
-        }
-        
+        let fuelValue = fuelForResult.title
+       
+       
         let selectedUkrainOrUSA = carTypeSegmentControl.selectedSegmentIndex
-        switch selectedUkrainOrUSA {
-        case 0:
-            let sumOfValues = typeValue + brandValue + productionYearValue + fuelValue
-            let result = type + brand + modelType + productionYear + fuel + price + sumOfValues
-            showAlertWith(title: String(result))
-            
-        case 1:
-            let sumOfValues = typeValue + brandValue + productionYearValue + fuelValue
-            let result = 1.2 * Double(type) + 1.2 * Double(brand) + 1.2 * Double(modelType) + 1.2 * Double(productionYear) + 1.2 * Double(fuel) + 1.2 * Double(price) + Double(sumOfValues)
-            showAlertWith(title: String(Int(result)))
-            
-        default: ()
-        }
+              switch selectedUkrainOrUSA {
+              case 0:
+                  let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
+                  let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + sumOfValues
+                  showAlertWith(title: String(result))
+                  
+              case 1:
+                  let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
+                  let result = 1.2 * Double(type) + 1.2 * Double(brand) + 1.2 * Double(productionYear) + 1.2 * Double(fuel) + 1.2 * Double(price) + Double(sumOfValues)
+                  showAlertWith(title: String(Int(result)))
+                  
+              default: ()
+              }
 }
     
     func showAlertWith(title: String) {
@@ -221,19 +174,19 @@ class HomeViewController: UIViewController {
     }
     
     func selectTitleByTypeTextField(row: Int) {
-        typeTextField.text = titleType[row]
+        typeTextField.text = titleType[row].title
     }
     func selectTitleByBrandTextField(row: Int) {
-        brandTextField.text = titleBrand[row]
+        brandTextField.text = titleBrand[row].title
     }
     func selectTitleByModelTypeTextField(row: Int) {
-        modelTypeTextField.text = titleModelType[row]
+        modelTypeTextField.text = titleModelType[row].title
     }
     func selectTitleByProductionYearTextField(row: Int) {
-        productionYearTextField.text = String(titleProductionYear[row])
+        productionYearTextField.text = String(titleProductionYear[row].title)
     }
     func selectTitleByFuelTextField(row: Int) {
-        fuelTextField.text = titleFuel[row]
+        fuelTextField.text = titleFuel[row].title
     }
 }
 
@@ -268,15 +221,15 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == pickerViewType {
-            return titleType[row]
+            return titleType[row].title
         } else if pickerView == pickerViewBrand {
-            return titleBrand[row]
+            return titleBrand[row].title
         } else if pickerView == pickerViewModelType {
-            return titleModelType[row]
+            return titleModelType[row].title
         } else if pickerView == pickerViewProductionYear {
-            return titleProductionYear[row]
+            return titleProductionYear[row].title
         } else if pickerView == pickerViewFuel {
-            return titleFuel[row]
+            return titleFuel[row].title
         }
         return nil
     }
