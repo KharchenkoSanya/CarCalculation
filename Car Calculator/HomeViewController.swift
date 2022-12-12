@@ -46,12 +46,10 @@ class HomeViewController: UIViewController {
    @objc func dismissKeyBoard() {
         view.endEditing(true)
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
     @IBAction func calculateDidTap(_ sender: Any) {
         let type = Int(typeTextField.text ?? "") ?? 0
         let brand = Int(brandTextField.text ?? "") ?? 0
@@ -62,33 +60,30 @@ class HomeViewController: UIViewController {
         
         let typeIndex = pickerViewType.selectedRow(inComponent: 0)
         let typeForResult = titleType[typeIndex]
-        let typeValue = typeForResult.title
-        
+        let typeValue = typeForResult.value
         
         let brandIndex = pickerViewBrand.selectedRow(inComponent: 0)
         let brandForResult = titleBrand[brandIndex]
-        let brandValue = brandForResult.title
+        let brandValue = brandForResult.value
         
         let modelTypeIndex = pickerViewModelType.selectedRow(inComponent: 0)
         let modelTypeForResult = titleModelType[modelTypeIndex]
-        let modelTypeValue = modelTypeForResult.title
+        let modelTypeValue = modelTypeForResult.value
         
         let productionYearIndex = pickerViewProductionYear.selectedRow(inComponent: 0)
         let productionYearForResult = titleProductionYear[productionYearIndex]
-        let productionYearValue = productionYearForResult.title
-        
+        let productionYearValue = productionYearForResult.value
         
         let fuelIndex = pickerViewType.selectedRow(inComponent: 0)
         let fuelForResult = titleFuel[fuelIndex]
-        let fuelValue = fuelForResult.title
-        
+        let fuelValue = fuelForResult.value
         
         guard let selectedUkrainOrUSA = CountryCar(rawValue: carTypeSegmentControl.selectedSegmentIndex) else { return }
         
         switch selectedUkrainOrUSA {
         case .ukrain:
             let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
-            let result = 1 * type + 1 * brand + 1 * productionYear + 1 * fuel + 1 * price + sumOfValues
+            let result = 1 * type + 1 * brand + 1 * modelType + 1 * productionYear + 1 * fuel + 1 * price + sumOfValues
             showAlertWith(title: String(result))
             
         case .usa:
@@ -97,25 +92,20 @@ class HomeViewController: UIViewController {
             showAlertWith(title: String(Int(result)))
         }
     }
-    
     func showAlertWith(title: String) {
         let alert = UIAlertController(title: "You result", message: title, preferredStyle: .alert)
         alert.addAction(.init(title: "Ok", style: .cancel))
         self.present(alert, animated: true)
     }
-    
     @IBAction func UkrainAndUSADidChange(_ sender: UISegmentedControl) {
         clear()
     }
-    
     @IBAction func clearDidTap(_ sender: Any) {
         clear()
     }
-    
     func resetResulLable() {
         resultLable.text = nil
     }
-    
     func clear() {
         pickerViewType.selectRow(0, inComponent: 0, animated: true)
         selectTitleByTypeTextField(row: 0)
@@ -133,8 +123,6 @@ class HomeViewController: UIViewController {
         
         resetResulLable()
     }
-    
-    
     func configureCarTypeSegmentControl() {
         carTypeSegmentControl.removeAllSegments()
         carTypeSegmentControl.insertSegment(withTitle: CountryCar.ukrain.title, at: 0, animated: false)
@@ -144,7 +132,6 @@ class HomeViewController: UIViewController {
     func configyreTextField() {
         priceTextField.delegate = self
         priceTextField.keyboardType = .numberPad
-        
     }
     func configureDrumTextField() {
         pickerViewType.dataSource = self
@@ -188,7 +175,6 @@ class HomeViewController: UIViewController {
         fuelTextField.text = titleFuel[row].title
     }
 }
-
 extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits
@@ -196,12 +182,10 @@ extension HomeViewController: UITextFieldDelegate {
         return allowedCharacters.isSuperset(of: characterSet)
         }
     }
-    
-extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == pickerViewType {
             return titleType.count
@@ -216,8 +200,6 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
         return 0
     }
-    
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == pickerViewType {
             return titleType[row].title
@@ -232,7 +214,6 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         }
         return nil
     }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == pickerViewType {
             return selectTitleByTypeTextField(row: row)
