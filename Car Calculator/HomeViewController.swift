@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         configureCarTypeSegmentControl()
-        configyreTextField()
+        configureTextField()
         configureDrumTextField()
         priceTextField.becomeFirstResponder()
         resetResulLable()
@@ -54,12 +54,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func calculateDidTap(_ sender: Any) {
-//        let type = Int(typeTextField.text ?? "") ?? 0
-//        let brand = Int(brandTextField.text ?? "") ?? 0
-//        let modelType = Int(modelTypeTextField.text ?? "") ?? 0
-//        let productionYear = Int(productionYearTextField.text ?? "") ?? 0
-//        let fuel = Int(fuelTextField.text ?? "") ?? 0
-        let price = Int(priceTextField.text ?? "") ?? 0
+        let priceString = priceTextField.text ?? ""
+        guard let price = Int(priceString) else {
+            let alert = UIAlertController(title: "Error", message: "Price should not be empty", preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .cancel))
+            self.present(alert, animated: true)
+            return
+        }
         
         let typeIndex = typePickerView.selectedRow(inComponent: 0)
         let typeForResult = typesList[typeIndex]
@@ -85,12 +86,9 @@ class HomeViewController: UIViewController {
         
         switch selectedUkraineOrUSA {
         case .ukraine:
-//            let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
             let result = 1 * typeValue + 1 * brandValue + 1 * modelTypeValue + 1 * productionYearValue + 1 * fuelValue + 1 * price
             showAlertWith(title: String(result))
-            
         case .usa:
-//            let sumOfValues = typeValue + brandValue + modelTypeValue + productionYearValue + fuelValue
             let result = 1.2 * Double(typeValue) + 1.2 * Double(brandValue) + 1.2 * Double(modelTypeValue) + 1.2 * Double(productionYearValue) + 1.2 * Double(fuelValue) + 1.2 * Double(price)
             showAlertWith(title: String(Int(result)))
         }
@@ -139,7 +137,7 @@ class HomeViewController: UIViewController {
         carTypeSegmentControl.selectedSegmentIndex = 0
     }
     
-    func configyreTextField() {
+    func configureTextField() {
         priceTextField.delegate = self
         priceTextField.keyboardType = .numberPad
     }

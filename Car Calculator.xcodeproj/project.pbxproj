@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		332F5742294382120026D5AE /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F5741294382120026D5AE /* Element.swift */; };
-		3378789029451D900057FA46 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378788F29451D900057FA46 /* Country.swift */; };
+		332F5742294382120026D5AE /* TypeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332F5741294382120026D5AE /* TypeElement.swift */; };
+		3378789029451D900057FA46 /* CountryCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3378788F29451D900057FA46 /* CountryCar.swift */; };
 		33C4068B293F5C840056FA78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068A293F5C840056FA78 /* AppDelegate.swift */; };
 		33C4068D293F5C840056FA78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068C293F5C840056FA78 /* SceneDelegate.swift */; };
 		33C4068F293F5C840056FA78 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C4068E293F5C840056FA78 /* HomeViewController.swift */; };
 		33C40692293F5C840056FA78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C40690293F5C840056FA78 /* Main.storyboard */; };
 		33C40694293F5C850056FA78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C40693293F5C850056FA78 /* Assets.xcassets */; };
 		33C40697293F5C850056FA78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C40695293F5C850056FA78 /* LaunchScreen.storyboard */; };
+		33C977952948B2B000A6A527 /* BrandElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C977942948B2B000A6A527 /* BrandElement.swift */; };
+		33C977972948B2E500A6A527 /* ModelTypeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C977962948B2E500A6A527 /* ModelTypeElement.swift */; };
+		33C977992948B30800A6A527 /* FuelElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C977982948B30800A6A527 /* FuelElement.swift */; };
+		33C9779B2948B37000A6A527 /* ProductionYearElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C9779A2948B37000A6A527 /* ProductionYearElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		332F5741294382120026D5AE /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		3378788F29451D900057FA46 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		332F5741294382120026D5AE /* TypeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeElement.swift; sourceTree = "<group>"; };
+		3378788F29451D900057FA46 /* CountryCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCar.swift; sourceTree = "<group>"; };
 		33C40687293F5C840056FA78 /* Car Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C4068A293F5C840056FA78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C4068C293F5C840056FA78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		33C40693293F5C850056FA78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33C40696293F5C850056FA78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33C40698293F5C850056FA78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C977942948B2B000A6A527 /* BrandElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandElement.swift; sourceTree = "<group>"; };
+		33C977962948B2E500A6A527 /* ModelTypeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTypeElement.swift; sourceTree = "<group>"; };
+		33C977982948B30800A6A527 /* FuelElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelElement.swift; sourceTree = "<group>"; };
+		33C9779A2948B37000A6A527 /* ProductionYearElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionYearElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +83,12 @@
 		33C9779229488C4800A6A527 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				332F5741294382120026D5AE /* Element.swift */,
-				3378788F29451D900057FA46 /* Country.swift */,
+				332F5741294382120026D5AE /* TypeElement.swift */,
+				33C9779A2948B37000A6A527 /* ProductionYearElement.swift */,
+				33C977942948B2B000A6A527 /* BrandElement.swift */,
+				33C977962948B2E500A6A527 /* ModelTypeElement.swift */,
+				3378788F29451D900057FA46 /* CountryCar.swift */,
+				33C977982948B30800A6A527 /* FuelElement.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -152,11 +164,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C977952948B2B000A6A527 /* BrandElement.swift in Sources */,
 				33C4068F293F5C840056FA78 /* HomeViewController.swift in Sources */,
+				33C977992948B30800A6A527 /* FuelElement.swift in Sources */,
 				33C4068B293F5C840056FA78 /* AppDelegate.swift in Sources */,
-				332F5742294382120026D5AE /* Element.swift in Sources */,
-				3378789029451D900057FA46 /* Country.swift in Sources */,
+				332F5742294382120026D5AE /* TypeElement.swift in Sources */,
+				3378789029451D900057FA46 /* CountryCar.swift in Sources */,
 				33C4068D293F5C840056FA78 /* SceneDelegate.swift in Sources */,
+				33C9779B2948B37000A6A527 /* ProductionYearElement.swift in Sources */,
+				33C977972948B2E500A6A527 /* ModelTypeElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
