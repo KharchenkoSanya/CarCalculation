@@ -8,13 +8,13 @@
 import Foundation
 
 enum CountryCar: Int, CaseIterable {
-    case ukrain = 0
+    case ukraine = 0
     case usa = 1
     
     var title: String {
         switch self {
-        case .ukrain:
-            return "Ukrain"
+        case .ukraine:
+            return "Ukraine"
         case .usa:
             return "USA"
         }
